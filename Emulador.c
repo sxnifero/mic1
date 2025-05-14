@@ -10,6 +10,9 @@ typedef unsigned long int microinstrucao; // 64 bits, no caso de acordo com a aq
 
 // Registradores 
 
+// João - usar struct para estruturar melhor
+// typedef struct {
+
 palavra MAR = 0, MDR = 0, PC = 0; // Acesso da Memoria
 byte MBR = 0;			  // Acesso da Memoria
 
@@ -108,6 +111,7 @@ void carregar_programa(const char* prog){
 
 	}
 }
+// Usar constante enum invés de 0b11111..., ajuda a localizar erros e evitar falhas
 
 void decodificar_microinstrucao(){
 	MIR_B = (MIR) & 0b1111;
@@ -322,3 +326,11 @@ void binario(void* valor, int tipo){
 		} break;
 	}
 }
+
+
+
+// Usar validações, para entender se o programa deu erro e onde deu erro
+// if (!Programa) {
+    // fprintf(stderr, "Erro ao abrir o programa: %s\n", prog);
+  //  exit(1);
+// }
